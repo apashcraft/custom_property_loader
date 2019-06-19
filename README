@@ -1,0 +1,14 @@
+# Project Name
+Project description
+
+## Installation
+pip install -r requirements.txt
+Copy your Chef .pem and config.rb (or knife.rb) to the data folder.
+
+## Usage
+Used to transfer selected data from Chef to SolarWinds.
+
+python3 runner.py
+
+## Contributing
+Please send any update requests to Adam Ashcraft (adam.ashcraft@delaware.gov)
