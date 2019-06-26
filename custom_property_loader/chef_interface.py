@@ -1,3 +1,4 @@
+"""Provides an object for interacting with the Chef API"""
 from chef import api
 from pathlib import Path
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
@@ -9,7 +10,7 @@ disable_warnings(InsecureRequestWarning)
 
 
 class ChefAPI:
-
+    """This class provides an object for interacting with the Chef API"""
     def __init__(self):
         self.data_path = Path('data/')
         self.auth()

@@ -1,3 +1,4 @@
+"""Provides an object for interacting with the SolarWinds API"""
 import configparser
 from cryptography.fernet import Fernet
 import csv
@@ -12,7 +13,7 @@ from tools.tools import debug
 
 
 class SolarWindsInterface:
-
+    """Defines SolarWinds API object"""
     disable_warnings(InsecureRequestWarning)
 
     def __init__(self):

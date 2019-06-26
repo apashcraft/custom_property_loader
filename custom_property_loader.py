@@ -1,3 +1,4 @@
+"""Loads specific custom properties from Chef to SolarWinds through API"""
 from custom_property_loader.chef_interface import ChefAPI
 from custom_property_loader.sw_interface import SolarWindsInterface
 import os
@@ -6,7 +7,7 @@ from tools.tools import timer
 
 
 def loader_menu(chef, sw, tool_bag, nodes):
-
+    """Creates menu for selecting which custom property to load"""
     menu_items = ["Chef_Environment",
                   "Chef_Management_Group",
                   "Chef_Patching_Role",
@@ -58,6 +59,7 @@ def loader_menu(chef, sw, tool_bag, nodes):
 
 @timer
 def load_properties(chef, sw, nodes, prop, data=[]):
+    """Loads specific custom property as selected by the menu"""
     node_names = {node['NodeName']: node['Uri'] for node in nodes}
     node_props = {}
     node_props['Property'] = prop
@@ -105,13 +107,8 @@ def load_properties(chef, sw, nodes, prop, data=[]):
         sw.change_custom_properties(node_props['Uri'], updated_props)
 
 
-def cleaner(word):
-    word = word.replace('recipe', '')
-    word = word.replace('role', '')
-    return word.strip("[]")
-
-
 def managed_roles(end_point, chef):
+    """Pull down list of specified roles for use with loader"""
     tool_bag = Tools()
     save_path = "data/managed_roles.csv"
     patching_role = []
@@ -129,6 +126,7 @@ def managed_roles(end_point, chef):
 
 
 def main():
+    """Runs the loader"""
     # Set paths
     auth_path = "data/sw_access.txt"
 
