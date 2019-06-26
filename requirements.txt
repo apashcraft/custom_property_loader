@@ -1,6 +1,6 @@
 cryptography==2.6.1
+requests==2.22.0
 six==1.12.0
 orionsdk==0.0.6
-requests==2.21.0
 PyChef==0.3.0
 python_dateutil==2.8.0
